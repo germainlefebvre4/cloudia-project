@@ -1,0 +1,110 @@
+---
+site_name: Cloudia
+site_description: Tado python library to automate your home thermostat.
+site_url: https://cloudia.readthedocs.io/
+
+repo_name: germainlefebvre4/cloudia-project
+repo_url: https://github.com/germainlefebvre4/cloudia-project
+
+theme:
+  name: material
+  language: en
+  logo: assets/logo.png
+  favicon: assets/favicon.png
+  features:
+    - navigation.tabs
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - navigation.footer
+    
+    - content.tabs.link
+    - navigation.indexes
+    - content.tooltips
+    - content.code.annotate
+    - content.code.copy
+    - content.code.select
+
+plugins:
+  - search:
+      lang: en
+  - autorefs
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          options:
+            show_source: false
+
+nav:
+  - Cloudia: index.md
+  - Features:
+      - Supported features: features/supported_features.md
+      - Roadmap: features/roadmap.md
+  - Architecture:
+      - C4 Model: architecture/c4model.md
+      - Principle: architecture/principle.md
+      - Core components: architecture/core_components.md
+  - Getting Started:
+      - Docker: getting_started/docker.md
+  - Configuration:
+      - Cloud Provider Access: configuration/cloud_provider_access.md
+      - Environment Variables: configuration/environment_variables.md
+      - Docker: configuration/docker.md
+  - Deployment:
+      - Docker: deployment/docker.md
+      - Docker Compose: deployment/docker_compose.md
+      - Kubernetes: deployment/kubernetes.md
+  - Contributing:
+      - Code of Conduct: contributing/code_of_conduct.md
+      - Contributing Guide: contributing/contributing_guide.md
+      - Development Guide: contributing/development_guide.md
+  - FAQ: faq.md
+  - Release Notes: release_notes.md
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - admonition
+  - codehilite
+  - tables
+  - footnotes
+  - extra
+  - toc:
+      permalink: true
+  - markdown.extensions.codehilite:
+      guess_lang: false
+  # - mdx_include:
+  #     base_path: docs
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+      linenums: !ENV [LINENUMS, false]
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format ''
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+watch:
+  - docs/
+
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/germainlefebvre4/cloudia-project
+    - icon: fontawesome/brands/docker
+      link: https://hub.docker.com/r/germainlefebvre4
+
+copyright: Copyright &copy; 2023 Germain Lefebvre, Max Rosin, and contributors
